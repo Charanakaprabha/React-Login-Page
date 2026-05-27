@@ -1,0 +1,374 @@
+/* Desktop screen centering shell */
+.desktop-wrapper {
+  width: 100%;
+  max-width: 412px;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 480px) {
+  .desktop-wrapper {
+    height: 100vh;
+    height: 100dvh;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Page base layout */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #F7F8FA; /* The off-white background matching images */
+  overflow-y: auto;
+  position: relative;
+}
+
+/* 1. Welcome View Layout */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1D1D1F;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.welcome-desc {
+  font-size: 15px;
+  color: #8E8E93;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #6C25FF;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+  outline: none;
+}
+
+.btn-primary:hover {
+  background-color: #561AD9;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: #E1D9F2; /* Soft lavender */
+  color: #1D103A;
+  border: none;
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+  outline: none;
+}
+
+.btn-secondary:hover {
+  background-color: #D4C5F7;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* 2 & 3. Form Views (Login & Register) */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  min-height: 100%;
+  justify-content: space-between;
+}
+
+.form-header-group {
+  margin-bottom: 32px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1D1D1F;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.form-desc {
+  font-size: 15px;
+  color: #8E8E93;
+  line-height: 1.5;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* Custom overlapping label inputs */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 1px solid #D1D1D6;
+  border-radius: 6px;
+  background-color: #FFFFFF; /* Input itself is white */
+  color: #1D1D1F;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #6C25FF;
+}
+
+.input-label {
+  position: absolute;
+  left: 12px;
+  top: -8px;
+  font-size: 13px;
+  color: #6C25FF;
+  background-color: #F7F8FA; /* Matches the page off-white background */
+  padding: 0 6px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.label-asterisk {
+  color: #FF3B30;
+  margin-left: 2px;
+}
+
+/* Radio button styles */
+.radio-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.radio-label-heading {
+  font-size: 14px;
+  color: #1D1D1F;
+  font-weight: 500;
+}
+
+.radio-group {
+  display: flex;
+  gap: 24px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #1D1D1F;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-option input {
+  display: none;
+}
+
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #CBCBCB;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+}
+
+.radio-option input:checked + .custom-radio {
+  border-color: #6C25FF;
+}
+
+.custom-radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.radio-option input:checked + .custom-radio::after {
+  background-color: #6C25FF;
+}
+
+/* Button style adjustments for login/register form */
+.btn-disabled {
+  background-color: #CBCBCB;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+  background-color: #CBCBCB;
+}
+
+.form-bottom {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* 4. Profile / Settings View Layout */
+.profile-header {
+  padding: 24px 20px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E5EA;
+  font-weight: 600;
+  font-size: 17px;
+  color: #1C1C1E;
+}
+
+.profile-container {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  background-color: #F7F8FA; /* Card background is same as page to blend but framed by borders */
+  padding: 24px 20px;
+  border-top: 1px dashed #CBCBCB;
+  border-bottom: 1px dashed #CBCBCB;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-avatar-container {
+  position: relative;
+  width: 76px;
+  height: 76px;
+}
+
+.profile-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #E5E5EA;
+}
+
+.camera-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #6C25FF;
+  border: 2px solid #F7F8FA;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1D1D1F;
+}
+
+.profile-email {
+  font-size: 14px;
+  color: #8E8E93;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: #55555A;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.logout-container {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-logout {
+  background-color: transparent;
+  color: #FF3B30;
+  border: 1px solid #FF3B30;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+  background-color: #FF3B30;
+  color: #FFFFFF;
+}
