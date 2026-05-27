@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function RegisterView({ onNavigate, onRegisterSuccess }) {
+export default function RegisterView({ onRegisterSuccess }) {
+  const navigate = useNavigate();
   // Prefilled mock values representing Charan's credentials for testing
   const [fullName, setFullName] = useState('Charan');
   const [phone, setPhone] = useState('9876543210');
@@ -18,6 +20,7 @@ export default function RegisterView({ onNavigate, onRegisterSuccess }) {
       companyName: companyName,
       isAgency: isAgency
     });
+    navigate('/profile');
   };
 
   return (
@@ -130,7 +133,7 @@ export default function RegisterView({ onNavigate, onRegisterSuccess }) {
           </div>
         </div>
 
-        <div className="form-bottom" style={{ marginTop: '24px' }}>
+        <div className="form-bottom">
           <button type="submit" className="btn-primary">
             Create Account
           </button>
@@ -138,7 +141,7 @@ export default function RegisterView({ onNavigate, onRegisterSuccess }) {
           <p style={{ textAlign: 'center', marginTop: '16px', fontSize: '14px', color: '#636366' }}>
             Already have an account?{' '}
             <span 
-              onClick={() => onNavigate('login')}
+              onClick={() => navigate('/login')}
               style={{ color: '#6C25FF', fontWeight: 600, cursor: 'pointer' }}
             >
               Login

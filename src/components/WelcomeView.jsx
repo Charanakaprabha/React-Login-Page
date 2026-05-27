@@ -1,5 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 
-export default function WelcomeView({ onNavigate }) {
+export default function WelcomeView() {
+  const navigate = useNavigate();
+
   return (
     <div className="page-container">
       <div className="welcome-container">
@@ -15,7 +18,7 @@ export default function WelcomeView({ onNavigate }) {
           <button 
             type="button" 
             className="btn-primary" 
-            onClick={() => onNavigate('register')}
+            onClick={() => navigate('/register')}
           >
             Create Account
           </button>
@@ -23,7 +26,7 @@ export default function WelcomeView({ onNavigate }) {
           <button 
             type="button" 
             className="btn-secondary" 
-            onClick={() => onNavigate('login')}
+            onClick={() => navigate('/login')}
           >
             Already Registered? Login
           </button>

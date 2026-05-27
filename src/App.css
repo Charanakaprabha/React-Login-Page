@@ -87,6 +87,29 @@
   transform: scale(0.98);
 }
 
+.btn-login {
+  background-color: #CBCBCB;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+  outline: none;
+}
+
+.btn-login:hover {
+  background-color: #B9B9B9;
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}
+
 .btn-secondary {
   background-color: #E1D9F2; /* Soft lavender */
   color: #1D103A;
