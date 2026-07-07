@@ -49,13 +49,7 @@
   line-height: 1.2;
 }
 
-.welcome-desc {
-  font-size: 15px;
-  color: #8E8E93;
-  line-height: 1.5;
-  margin-bottom: 30px;
-  max-width: 90%;
-}
+
 
 .welcome-buttons {
   display: flex;
